@@ -1,10 +1,11 @@
 {
     "name": "cpp-project-creator",
-    "displayName": "My C++ Extension",
+    "displayName": "C++ Projects Creator",
     "description": "Creates a C++ project structure with tasks.json",
-    "version": "0.0.1",
-    "publisher": "A.U.X.I",
-    "repository": "",
+    "version": "0.1.0",
+    "publisher": "AUXI",
+    "repository": "https://github.com/AuxiDev/CppProjectsCreator",
+    "license": "MIT",
     "engines": {
         "vscode": "^1.60.0"
     },

@@ -1,3 +1,7 @@
+// C++ Projects Creator
+// Copyright (c) 2023 A.U.X.I
+// Licensed under the MIT License.
+
 const vscode = require("vscode");
 const path = require("path");
 const fs = require("fs");

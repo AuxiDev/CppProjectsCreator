@@ -24,8 +24,6 @@ MyCppProject/
 ├── tasks.json
 ```
 
-![C++ Project Creator]
-
 ## Requirements
 
 The C++ Project Creator extension has the following requirements:
@@ -62,6 +60,6 @@ There are currently no known issues with the C++ Project Creator extension. If y
 
 -   Beta release of the C++ Project Creator extension.
 
-For more information, visit the [GitHub repository](https://github.com/AuxiDev/) of the C++ Project Creator extension.
+For more information, visit the [GitHub repository](https://github.com/AuxiDev/CppProjectsCreator) of the C++ Project Creator extension.
 
 ---
