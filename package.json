@@ -1,0 +1,36 @@
+{
+    "name": "cpp-project-creator",
+    "displayName": "My C++ Extension",
+    "description": "Creates a C++ project structure with tasks.json",
+    "version": "0.0.1",
+    "publisher": "A.U.X.I",
+    "repository": "",
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.createCppProject"
+    ],
+    "main": "./extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.createCppProject",
+                "title": "Create C++ Project"
+            }
+        ]
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.60.0",
+        "eslint": "^7.32.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.25.3",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-standard": "^4.1.0",
+        "vscode": "1.0.0-beta.2"
+    }
+}
