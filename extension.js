@@ -19,13 +19,15 @@ function activate(context) {
             }
 
             const srcPath = path.join(rootPath, "src");
+            const vsPath = path.join(rootPath, ".vscode");
             const buildPath = path.join(rootPath, "build");
-            const tasksJsonPath = path.join(rootPath, "tasks.json");
+            const tasksJsonPath = path.join(vsPath, "tasks.json");
             const mainCppPath = path.join(srcPath, "main.cpp");
 
             try {
                 fs.mkdirSync(srcPath);
                 fs.mkdirSync(buildPath);
+                fs.mkdirSync(vsPath);
 
                 const tasksJsonTemplatePath = path.join(
                     __dirname,

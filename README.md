@@ -56,6 +56,12 @@ There are currently no known issues with the C++ Project Creator extension. If y
 
 ## Release Notes
 
+### 0.1.1
+
+-   Fixed issues related to templates
+-   Fixed tasks.json
+-   Moved tasks.json to .vscode
+
 ### 0.1.0
 
 -   Beta release of the C++ Project Creator extension.
