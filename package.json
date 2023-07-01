@@ -2,7 +2,7 @@
     "name": "cpp-project-creator",
     "displayName": "C++ Projects Creator",
     "description": "Creates a C++ project structure with tasks.json",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "publisher": "AUXI",
     "repository": "https://github.com/AuxiDev/CppProjectsCreator",
     "license": "MIT",

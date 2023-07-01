@@ -1,6 +1,19 @@
 ## Release Notes
 
-### 0.2.0 - Major Update
+### 0.2.2 - Minor Update - July, 1st 2023
+
+##### Quality 4 Life Improvements
+
+-   Added a logo
+
+### 0.2.1 - Minor Update - July, 1st 2023
+
+##### Quality 4 Life Improvements
+
+-   Added a temporar logo
+-   Added CHANGELOG.md for VS Code
+
+### 0.2.0 - Major Update - July, 1st 2023
 
 ##### New Features
 
@@ -23,13 +36,13 @@
 
 -   Addressed minor bugs and resolved any known issues to ensure a smoother user experience.
 
-### 0.1.1 - Fixes
+### 0.1.1 - Fixes - June, 30th 2023
 
 -   Fixed issues related to templates
 -   Fixed tasks.json
 -   Moved tasks.json to .vscode
 
-### 0.1.0 - Major Update
+### 0.1.0 - Major Update - June, 30th 2023
 
 -   Beta release of the C++ Project Creator extension.
 
