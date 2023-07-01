@@ -2,27 +2,91 @@
     "name": "cpp-project-creator",
     "displayName": "C++ Projects Creator",
     "description": "Creates a C++ project structure with tasks.json",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "publisher": "AUXI",
     "repository": "https://github.com/AuxiDev/CppProjectsCreator",
     "license": "MIT",
+    "activationEvents": [
+        "onCommand"
+    ],
     "engines": {
         "vscode": "^1.60.0"
     },
     "categories": [
         "Other"
     ],
-    "activationEvents": [
-        "onCommand:extension.createCppProject"
-    ],
     "main": "./extension.js",
     "contributes": {
+        "configuration": {
+            "title": "C++ Project Creator",
+            "properties": {
+                "cppProjectCreator.compilerCommandPrefix": {
+                    "type": "string",
+                    "default": "g++",
+                    "description": "The compiler command for the C++ compiler your a using. For example: g++, clang, msvc"
+                },
+                "cppProjectCreator.compilerArgs": {
+                    "type": "object",
+                    "default": {
+                        "gcc": [
+                            "src/*.cpp",
+                            "-o",
+                            "build/build.exe"
+                        ],
+                        "clang": [
+                            "src/*.cpp",
+                            "-o",
+                            "build/build.exe"
+                        ],
+                        "msvc": [
+                            "src/*.cpp",
+                            "/Febuild/build.exe"
+                        ],
+                        "g++": [
+                            "src/*.cpp",
+                            "-o",
+                            "build/build.exe"
+                        ]
+                    },
+                    "description": "Compiler arguments for different C++ compilers",
+                    "markdownDescription": "Compiler arguments for different C++ compilers. Add or modify compiler arguments as needed.",
+                    "additionalProperties": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "commands": [
             {
                 "command": "extension.createCppProject",
                 "title": "Create C++ Project"
+            },
+            {
+                "command": "extension.runCppBuildTask",
+                "title": "Run C++ Project"
             }
-        ]
+        ],
+        "menus": {
+            "editor/title": [
+                {
+                    "command": "extension.runCppBuildTask",
+                    "group": "navigation",
+                    "when": "editorLangId == cpp",
+                    "icon": "$(triangle-right)",
+                    "title": "Run C++ Project",
+                    "order": 0
+                }
+            ],
+            "explorer/context": [
+                {
+                    "command": "extension.runCppBuildTask",
+                    "when": "resourceLangId == cpp"
+                }
+            ]
+        }
     },
     "devDependencies": {
         "@types/vscode": "^1.60.0",
