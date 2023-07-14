@@ -6,6 +6,7 @@ const vscode = require("vscode");
 const path = require("path");
 const fs = require("fs");
 const { StatusBarAlignment } = vscode;
+const json5 = require("json5");
 
 function activate(context) {
     const runButton = vscode.window.createStatusBarItem(
@@ -19,7 +20,11 @@ function activate(context) {
 
     let createProjectDisposable = vscode.commands.registerCommand(
         "extension.createCppProject",
-        () => {
+        async () => {
+            const cppFileTemplate = vscode.workspace
+                .getConfiguration("cppProjectCreator")
+                .get("cppFileTemplate");
+
             const rootPath = vscode.workspace.rootPath;
             if (!rootPath) {
                 vscode.window.showErrorMessage(
@@ -28,32 +33,49 @@ function activate(context) {
                 return;
             }
 
+            // Paths
             const srcPath = path.join(rootPath, "src");
             const buildPath = path.join(rootPath, "build");
             const mainCppPath = path.join(srcPath, "main.cpp");
 
+            // Ask for deletion if structure already exists
+            if (fs.existsSync(buildPath) || fs.existsSync(srcPath)) {
+                const confirmDelete = await vscode.window.showWarningMessage(
+                    "The project structure already exists. Do you want to delete it and proceed?",
+                    "Delete and Proceed",
+                    "Cancel"
+                );
+
+                if (confirmDelete !== "Delete and Proceed") {
+                    vscode.window.showInformationMessage("Operation canceled.");
+                    return;
+                }
+
+                // Delete existing files
+                try {
+                    fs.unlinkSync(mainCppPath);
+                    fs.rmdirSync(srcPath);
+                    fs.rmdirSync(buildPath);
+                } catch (error) {
+                    vscode.window.showErrorMessage(
+                        "An error occurred while attempting to delete the existing structure. Please verify if there are other programs currently utilizing the files and directories."
+                    );
+                    return;
+                }
+            }
+
+            // Create structure
             try {
                 fs.mkdirSync(srcPath);
                 fs.mkdirSync(buildPath);
-
-                const mainCppTemplatePath = path.join(
-                    __dirname,
-                    "main.cpp.template"
-                );
-
-                const mainCppContent = fs.readFileSync(
-                    mainCppTemplatePath,
-                    "utf8"
-                );
-
-                fs.writeFileSync(mainCppPath, mainCppContent);
+                fs.writeFileSync(mainCppPath, cppFileTemplate, "utf8");
 
                 vscode.window.showInformationMessage(
                     "C++ project structure created successfully."
                 );
             } catch (error) {
                 vscode.window.showErrorMessage(
-                    "An error occurred while creating the project structure."
+                    "An error occurred while attempting to delete the existing structure. Please verify if there are other programs currently utilizing your directory."
                 );
             }
         }
@@ -82,7 +104,7 @@ function activate(context) {
 
             if (!selectedArgs) {
                 vscode.window.showErrorMessage(
-                    `Invalid or missing compiler arguments for '${preferredCompiler}'.`
+                    `Invalid or missing compiler arguments for '${preferredCompiler}'. Please check your settings!`
                 );
                 return;
             }

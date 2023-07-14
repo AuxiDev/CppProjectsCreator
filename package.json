@@ -1,8 +1,8 @@
 {
     "name": "cpp-project-creator",
     "displayName": "C++ Projects Creator",
-    "description": "Creates a C++ project structure with tasks.json",
-    "version": "0.2.2",
+    "description": "Introducing our C++ Project Generator with exciting features, including customizable settings, a flexible compilation process, and advanced error messages. Easily tailor your projects, adjust file content, and receive detailed error feedback for an enhanced development experience.",
+    "version": "0.3.0",
     "publisher": "AUXI",
     "repository": "https://github.com/AuxiDev/CppProjectsCreator",
     "license": "MIT",
@@ -21,6 +21,12 @@
         "configuration": {
             "title": "C++ Project Creator",
             "properties": {
+                "cppProjectCreator.cppFileTemplate": {
+                    "description": "Set your own content which we use to generate your `main.cpp` file in a project!",
+                    "type": "string",
+                    "editPresentation": "multilineText",
+                    "default": "#include <iostream>\nusing namespace std;\n\nint main() {\n\tcout << \"Hello, World!\";\n\n\treturn 0;\n}"
+                },
                 "cppProjectCreator.compilerCommandPrefix": {
                     "type": "string",
                     "default": "g++",
@@ -98,5 +104,8 @@
         "eslint-plugin-promise": "^5.1.0",
         "eslint-plugin-standard": "^4.1.0",
         "vscode": "1.0.0-beta.2"
+    },
+    "dependencies": {
+        "json5": "^2.2.3"
     }
 }

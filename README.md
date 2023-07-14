@@ -3,6 +3,9 @@
 This is the official documentation of the "C++ Project Creator" extension
 created by A.U.X.I
 
+It helps you to generate & compile your C++ Project providing cool settings & features!
+Read the whole documentation to find out more!
+
 ## Features
 
 The C++ Project Creator extension provides a convenient way to generate a C++ project structure and compile the project!
@@ -11,7 +14,7 @@ The C++ Project Creator extension provides a convenient way to generate a C++ pr
 
 -   **Task Automation:** Compile your project quickly. You can also customize every setting for compilation!
 
--   **Customizable Templates:** Modify the default project structure to suit your specific requirements. (WIP)
+-   **Customizable Templates:** Modify the default project structure to suit your specific requirements.
 
 Here is an example of the generated C++ project structure:
 
@@ -43,6 +46,10 @@ The C++ Project Creator extension does provide additional VS Code settings.
     We support: gcc, clang, msvc, g++  
     **You can also add your own! Make sure that the prefix matches!**
 
+-   `Cpp Project Creator: Cpp File Template`
+    Set your own look of the `main.cpp` file.
+    We already included a standard look.
+
 ## Usage
 
 1. Open Visual Studio Code.
@@ -66,6 +73,27 @@ The C++ Project Creator extension does provide additional VS Code settings.
 There are currently no known issues with the C++ Project Creator extension. If you encounter any problems or have suggestions for improvement, please submit an issue on the extension's GitHub repository.
 
 ## Release Notes
+
+### 0.3.0 - Major Update - July, 14th 2023
+
+##### New Features
+
+-   Introducing the "C++ File Template" setting: You can now customize the content of the pre-generated `main.cpp` file.
+-   Added a new prompt which will ask you if you want to overwrite an existing project structure.
+
+##### Quality of Life Improvements
+
+-   Enhanced project generation: If the folder structure already exists, you will now be asked if you want to overwrite it. Before you got an error message.
+-   Adjusted some error messages to provide more information on what you should do to resolve the problem.
+
+##### Changes
+
+-   Removed main.cpp.template: Not needed anymore since the user can now choose more easily how the `main.cpp` file should look.
+-   Enhanced descriptions: Improved various descriptions to align with new updates and changes, ensuring seamless integration.
+
+##### Bug Fixes
+
+-   Addressed minor bugs and resolved any known issues to ensure a smoother user experience.
 
 ### 0.2.2 - Minor Update - July, 1st 2023
 

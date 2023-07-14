@@ -1,5 +1,26 @@
 ## Release Notes
 
+### 0.3.0 - Major Update - July, 14th 2023
+
+##### New Features
+
+-   Introducing the "C++ File Template" setting: You can now customize the content of the pre-generated `main.cpp` file.
+-   Added a new prompt which will ask you if you want to overwrite an existing project structure.
+
+##### Quality of Life Improvements
+
+-   Enhanced project generation: If the folder structure already exists, you will now be asked if you want to overwrite it. Before you got an error message.
+-   Adjusted some error messages to provide more information on what you should do to resolve the problem.
+
+##### Changes
+
+-   Removed main.cpp.template: Not needed anymore since the user can now choose more easily how the `main.cpp` file should look.
+-   Enhanced descriptions: Improved various descriptions to align with new updates and changes, ensuring seamless integration.
+
+##### Bug Fixes
+
+-   Addressed minor bugs and resolved any known issues to ensure a smoother user experience.
+
 ### 0.2.2 - Minor Update - July, 1st 2023
 
 ##### Quality 4 Life Improvements
